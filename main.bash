@@ -27,11 +27,15 @@ echo "===> [1] beg | create tmp bashrc-bootstrap.bash"
 bashrc_bootstrap_pathname="${HOME}/bashrc-bootstrap.bash"
 echo  "created by pjc-install.github.io/main.bash $(date +%s)"   > ${bashrc_bootstrap_pathname}
 
-echo  "#######################################################" >> ${HOME}/.bashrc
-echo  " pjc, tmp bashrc-bootstrap for setup                   " >> ${HOME}/.bashrc
-echo  "#######################################################" >> ${HOME}/.bashrc
-echo  "source ${bashrc_bootstrap_pathname}                    " >> ${HOME}/.bashrc
-
+if ! grep -q "bashrc-bootstrap" "${HOME}/.bashrc"; then
+	# .bashrc doesn't contain 'bashrc-bootstrap', so set it up source
+	# bashrc_bootstrap_pathname, for repeatability during debug and tweaking
+	# after full setup this should be removed from .bashrc !!!
+	echo  "#######################################################" >> ${HOME}/.bashrc
+	echo  "# pjc, FIXME FIXME FIXME tmp bashrc-bootstrap for setup" >> ${HOME}/.bashrc
+	echo  "#######################################################" >> ${HOME}/.bashrc
+	echo  "source ${bashrc_bootstrap_pathname}"                     >> ${HOME}/.bashrc
+fi
 echo "===> [1] end | create tmp bashrc-bootstrap.bash"
 
 
