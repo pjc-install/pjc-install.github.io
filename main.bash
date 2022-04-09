@@ -8,7 +8,7 @@ echo '
 	main.bash
 
 	usage:
-		curl -L pjc-install.github.io/main.bash | bash
+		curl -Ls pjc-install.github.io/main.bash | bash
 
 #####################################################################
 #####################################################################
@@ -21,11 +21,11 @@ if ! is_os_ubuntu_like ; then
 	exit 1
 fi
 
-echo worked ok
 
-# basic upgrade
-#sudo apt-get update
-#sudo apt-get upgrade
+echo "===> basic update, upgrade"
+sudo apt-get update
+sudo apt-get upgrade
+
 
 
 # some nice prerequsites before turning over setup to ansible
