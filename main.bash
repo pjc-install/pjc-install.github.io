@@ -5,10 +5,11 @@ echo '
 #####################################################################
 #####################################################################
 
-	main.bash
+main.bash
 
-	usage:
-		curl -Ls pjc-install.github.io/main.bash | bash
+usage:
+
+  curl -Ls pjc-install.github.io/main.bash | bash
 
 #####################################################################
 #####################################################################
@@ -25,7 +26,7 @@ fi
 echo "===> [1] beg | create tmp bashrc-bootstrap.bash"
 
 bashrc_bootstrap_pathname="${HOME}/bashrc-bootstrap.bash"
-echo  "created by pjc-install.github.io/main.bash $(date +%s)"   > ${bashrc_bootstrap_pathname}
+echo  "# created by pjc-install.github.io/main.bash $(date +%s)"   > ${bashrc_bootstrap_pathname}
 
 if ! grep -q "bashrc-bootstrap" "${HOME}/.bashrc"; then
 	# .bashrc doesn't contain 'bashrc-bootstrap', so set it up source
@@ -66,7 +67,10 @@ mv ./eget ${HOME}/.local/bin
 
 read -p "Press enter to continue"
 
-eget zyedidia/micro
+# eget zyedidia/micro
+# --asset='linux64.tar.gz' is required to avoid getting choice to install static
+# eget not designed for scripting !! but nice anyway
+eget  zyedidia/micro --asset='linux64.tar.gz' --to ${HOME}/.local/bin
 
 read -p "Press enter to continue"
 echo "===> [3] end | some nice prerequsites before turning over setup to ansible"
