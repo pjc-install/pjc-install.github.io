@@ -50,6 +50,8 @@ sudo install mc
 # eget is a marvellous single binary installer from the maker of micro
 # [source](https://github.com/zyedidia/eget)
 curl https://zyedidia.github.io/eget.sh | sh
+# downloads eget to current dir
+mv ./eget ${HOME}/.local/bin
 
 eget zyedidia/micro
 
