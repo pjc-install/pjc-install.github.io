@@ -54,9 +54,13 @@ curl https://zyedidia.github.io/eget.sh | sh
 # downloads eget to current dir
 mv ./eget ${HOME}/.local/bin
 
+read -p "Press enter to continue"
+
 eget zyedidia/micro
 
+read -p "Press enter to continue"
 echo "===> [3] end | some nice prerequsites before turning over setup to ansible"
+read -p "Press enter to continue"
 
 
 
