@@ -29,13 +29,13 @@ echo "===> [1]-end basic update, upgrade"
 
 
 
-echo "===> [1]-beg some nice prerequsites before turning over setup to ansible"
+echo "===> [2]-beg some nice prerequsites before turning over setup to ansible"
 sudo install mc
 # eget is a marvellous single binary installer from the maker of micro
 # [source](https://github.com/zyedidia/eget)
 curl https://zyedidia.github.io/eget.sh | sh
-eget micro
-echo "===> [1]-end some nice prerequsites before turning over setup to ansible"
+eget zyedidia/micro
+echo "===> [2]-end some nice prerequsites before turning over setup to ansible"
 
 # some nice prerequsites before turning over setup to ansible
 
