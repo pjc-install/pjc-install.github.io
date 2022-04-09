@@ -21,25 +21,43 @@ if ! is_os_ubuntu_like ; then
 	exit 1
 fi
 
+# ##############################################################################
+echo "===> [1] beg | create tmp bashrc-bootstrap.bash"
+bashrc_bootstrap_pathname="${HOME}/bashrc-bootstrap.bash"
+touch "${bashrc_bootstrap_pathname}"
+echo  "#######################################################" >> ${HOME}/.bashrc
+echo  " pjc, tmp bashrc-bootstrap for setup                   " >> ${HOME}/.bashrc
+echo  "#######################################################" >> ${HOME}/.bashrc
+echo  "source ${bashrc_bootstrap_pathname}                    " >> ${HOME}/.bashrc
+echo "===> [1] end | create tmp bashrc-bootstrap.bash"
 
-echo "===> [1]-beg basic update, upgrade"
+
+
+
+# ##############################################################################
+echo "===> [2] beg | basic update, upgrade"
 sudo apt-get update
 sudo apt-get upgrade
-echo "===> [1]-end basic update, upgrade"
+echo "===> [2] end | basic update, upgrade"
 
 
+# ##############################################################################
+echo "===> [3] beg | some nice prerequsites before turning over setup to ansible"
+echo "export PATH=${HOME}/.local/bin" >> ${HOME}/bashrc-bootstrap.bash
 
-echo "===> [2]-beg some nice prerequsites before turning over setup to ansible"
 sudo install mc
+
 # eget is a marvellous single binary installer from the maker of micro
 # [source](https://github.com/zyedidia/eget)
 curl https://zyedidia.github.io/eget.sh | sh
+
 eget zyedidia/micro
-echo "===> [2]-end some nice prerequsites before turning over setup to ansible"
 
-# some nice prerequsites before turning over setup to ansible
+echo "===> [3] end | some nice prerequsites before turning over setup to ansible"
 
 
+
+# ##############################################################################
 # you need pip before you can install ansible
 # ref:
 #   https://linuxize.com/post/how-to-install-pip-on-ubuntu-20.04/
