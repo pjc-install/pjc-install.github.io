@@ -23,12 +23,15 @@ fi
 
 # ##############################################################################
 echo "===> [1] beg | create tmp bashrc-bootstrap.bash"
+
 bashrc_bootstrap_pathname="${HOME}/bashrc-bootstrap.bash"
-touch "${bashrc_bootstrap_pathname}"
+echo  "created by pjc-install.github.io/main.bash $(date +%s)"   > ${bashrc_bootstrap_pathname}
+
 echo  "#######################################################" >> ${HOME}/.bashrc
 echo  " pjc, tmp bashrc-bootstrap for setup                   " >> ${HOME}/.bashrc
 echo  "#######################################################" >> ${HOME}/.bashrc
 echo  "source ${bashrc_bootstrap_pathname}                    " >> ${HOME}/.bashrc
+
 echo "===> [1] end | create tmp bashrc-bootstrap.bash"
 
 
@@ -47,10 +50,13 @@ echo "export PATH=${HOME}/.local/bin:${PATH}" >> ${HOME}/bashrc-bootstrap.bash
 export PATH="${HOME}/.local/bin:${PATH}"
 
 sudo install mc
+read -p "Press enter to continue"
 
 # eget is a marvellous single binary installer from the maker of micro
 # [source](https://github.com/zyedidia/eget)
 curl https://zyedidia.github.io/eget.sh | sh
+read -p "Press enter to continue"
+
 # downloads eget to current dir
 mv ./eget ${HOME}/.local/bin
 
