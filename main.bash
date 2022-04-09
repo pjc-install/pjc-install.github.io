@@ -22,14 +22,22 @@ if ! is_os_ubuntu_like ; then
 fi
 
 
-echo "===> basic update, upgrade"
+echo "===> [1]-beg basic update, upgrade"
 sudo apt-get update
 sudo apt-get upgrade
+echo "===> [1]-end basic update, upgrade"
 
 
+
+echo "===> [1]-beg some nice prerequsites before turning over setup to ansible"
+sudo install mc
+# eget is a marvellous single binary installer from the maker of micro
+# [source](https://github.com/zyedidia/eget)
+curl https://zyedidia.github.io/eget.sh | sh
+eget micro
+echo "===> [1]-end some nice prerequsites before turning over setup to ansible"
 
 # some nice prerequsites before turning over setup to ansible
-#sudo install mc
 
 
 # you need pip before you can install ansible
