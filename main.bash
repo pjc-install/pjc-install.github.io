@@ -43,7 +43,8 @@ echo "===> [2] end | basic update, upgrade"
 
 # ##############################################################################
 echo "===> [3] beg | some nice prerequsites before turning over setup to ansible"
-echo "export PATH=${HOME}/.local/bin" >> ${HOME}/bashrc-bootstrap.bash
+echo "export PATH=${HOME}/.local/bin:${PATH}" >> ${HOME}/bashrc-bootstrap.bash
+export PATH="${HOME}/.local/bin:${PATH}"
 
 sudo install mc
 
