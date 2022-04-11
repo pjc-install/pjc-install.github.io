@@ -54,7 +54,7 @@ echo "===> [3] beg | some nice prerequsites before turning over setup to ansible
 echo "export PATH=${HOME}/.local/bin:${PATH}" >> ${HOME}/bashrc-bootstrap.bash
 export PATH="${HOME}/.local/bin:${PATH}"
 
-sudo install mc
+sudo install mc xclip
 read -p "Press enter to continue"
 
 # eget is a marvellous single binary installer from the maker of micro
